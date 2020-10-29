@@ -11,10 +11,10 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 //Use this for profiling spell checking
-public class SpellChecker {
+public class SpellCheckerHashSet {
     private Dictionary dictionary;
 
-    public SpellChecker(Dictionary dictionary) {
+    public SpellCheckerHashSet(Dictionary dictionary) {
         this.dictionary = dictionary;
     }
 
@@ -33,9 +33,9 @@ public class SpellChecker {
         JOptionPane.showMessageDialog(null, "Hit return to continue");
 
         //Test with LinkedList dictionary - do separate runs for TreeSet and HashSet dictionaries
-        Dictionary dictionary = new DictionaryLinkedList();
+        Dictionary dictionary = new DictionaryHashSet();
 
-        SpellChecker checker = new SpellChecker(dictionary);
+        SpellCheckerHashSet checker = new SpellCheckerHashSet(dictionary);
 
         List<String> words = readWords("words.txt");
 

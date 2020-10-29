@@ -8,13 +8,15 @@ package spelling;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 //Use this for profiling spell checking
-public class SpellChecker {
+public class SpellCheckerTeeSet {
     private Dictionary dictionary;
 
-    public SpellChecker(Dictionary dictionary) {
+    public SpellCheckerTeeSet(Dictionary dictionary) {
         this.dictionary = dictionary;
     }
 
@@ -35,7 +37,7 @@ public class SpellChecker {
         //Test with LinkedList dictionary - do separate runs for TreeSet and HashSet dictionaries
         Dictionary dictionary = new DictionaryLinkedList();
 
-        SpellChecker checker = new SpellChecker(dictionary);
+        SpellCheckerTeeSet checker = new SpellCheckerTeeSet(dictionary);
 
         List<String> words = readWords("words.txt");
 
