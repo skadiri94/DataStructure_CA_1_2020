@@ -42,14 +42,34 @@ public class SpellingSuggester {
 
     private List<String> deletions(String word) {
         // All deletions of a letter in word
+        List<String> list = new ArrayList();
 
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int len = word.length() - 1;
+        //removing first char
+        if (dictionary.isWord(word.substring(1))) {
+            list.add(word.substring(1));
+        }
+        for (int i = 1; i < len; i++) {
+            //removing char from between first and last
+            String working = word.substring(0, i);
+            working = working.concat(word.substring((i + 1), word.length()));
+            if (dictionary.isWord(working)) {
+                list.add(working);
+            }
+        }
+        if (dictionary.isWord(word.substring(0, len))) {
+            list.add(word.substring(0, len));
+        }
+        return list;
+
+     //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private List<String> insertions(String word) {
         // All insertions of a letter in word
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private List<String> transpositions(String word){
