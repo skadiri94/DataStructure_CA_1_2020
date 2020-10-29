@@ -5,6 +5,7 @@
  */
 package spelling;
 
+
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,7 +21,7 @@ public class SpellCheckerHashSet {
 
     //This is the method you wish to profile
     private List<String> doSpellCheck(List<String> words, Dictionary dictionary) {
-        List<String> list = new ArrayList();//list to store mispelt words
+        List<String> list = new ArrayList<>();//list to store mispelt words
         for (String word : words) {
             if (!dictionary.isWord(word)) {
                 list.add(word);

@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.Scanner;
 
 //Use this for profiling spell checking
-public class SpellCheckerTeeSet {
+public class SpellCheckerTreeSet {
     private Dictionary dictionary;
 
-    public SpellCheckerTeeSet(Dictionary dictionary) {
+    public SpellCheckerTreeSet(Dictionary dictionary) {
         this.dictionary = dictionary;
     }
 
@@ -35,9 +35,9 @@ public class SpellCheckerTeeSet {
         JOptionPane.showMessageDialog(null, "Hit return to continue");
 
         //Test with LinkedList dictionary - do separate runs for TreeSet and HashSet dictionaries
-        Dictionary dictionary = new DictionaryLinkedList();
+        Dictionary dictionary = new DictionaryTreeSet();
 
-        SpellCheckerTeeSet checker = new SpellCheckerTeeSet(dictionary);
+        SpellCheckerTreeSet checker = new SpellCheckerTreeSet(dictionary);
 
         List<String> words = readWords("words.txt");
 
