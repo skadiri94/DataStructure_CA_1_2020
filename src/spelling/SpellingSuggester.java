@@ -15,9 +15,12 @@ public class SpellingSuggester {
 
     public List<String> getSuggestions(String word) {
         List<String> list = new ArrayList();
-        list.add("Any value"); // for testing
+        //list.add("Any value"); // for testing
+        list.addAll(replacements(word));
+        list.addAll(deletions(word));
 
-        //call the replacements, deletions etc methods and add results to list
+
+
 
         return list;
     }
@@ -44,21 +47,21 @@ public class SpellingSuggester {
         // All deletions of a letter in word
         List<String> list = new ArrayList();
 
-        int len = word.length() - 1;
+        int length = word.length() - 1;
         //removing first char
         if (dictionary.isWord(word.substring(1))) {
             list.add(word.substring(1));
         }
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < length; i++) {
             //removing char from between first and last
-            String working = word.substring(0, i);
-            working = working.concat(word.substring((i + 1), word.length()));
-            if (dictionary.isWord(working)) {
-                list.add(working);
+            String newWord = word.substring(0, i);
+            newWord = newWord.concat(word.substring((i + 1), word.length()));
+            if (dictionary.isWord(newWord)) {
+                list.add(newWord);
             }
         }
-        if (dictionary.isWord(word.substring(0, len))) {
-            list.add(word.substring(0, len));
+        if (dictionary.isWord(word.substring(0, length))) {
+            list.add(word.substring(0, length));
         }
         return list;
 
